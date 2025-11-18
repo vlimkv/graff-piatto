@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function GraffPiattoPage() {
   return (
@@ -37,9 +38,12 @@ export default function GraffPiattoPage() {
             {/* Блок кнопок — 445×56, left: 505, top: 300 */}
             <div className="absolute left-[505px] top-[300px] flex h-[56px] w-[445px] items-center justify-between">
               {/* Кнопка 1 — 200×56, золото */}
-              <button className="flex h-[56px] w-[200px] items-center justify-center bg-[#C9A25B] text-[16px] font-medium leading-[24px] tracking-[0.15px] text-white hover:bg-[#b58f4d]">
+              <Link
+                href="/catalog"
+                className="flex h-[56px] w-[200px] items-center justify-center bg-[#C9A25B] text-[16px] font-medium leading-[24px] tracking-[0.15px] text-white hover:bg-[#b58f4d]"
+              >
                 Каталог
-              </button>
+              </Link>
 
               {/* Кнопка 2 — 230×56, синий */}
               <button className="flex h-[56px] w-[230px] items-center justify-center bg-[#303F56] text-[16px] font-medium leading-[24px] tracking-[0.15px] text-white hover:bg-[#243147]">
@@ -268,9 +272,12 @@ export default function GraffPiattoPage() {
             </p>
             
             <div className="mt-8 flex w-full flex-col gap-3">
-              <button className="h-[50px] w-full bg-[#C9A25B] text-[14px] font-medium uppercase tracking-wider text-white hover:bg-[#b58f4d]">
+              <Link
+                href="/catalog"
+                className="block h-[50px] w-full bg-[#C9A25B] text-[14px] font-medium uppercase tracking-wider text-white hover:bg-[#b58f4d]"
+              >
                 Каталог
-              </button>
+              </Link>
               <button className="h-[50px] w-full bg-[#303F56] text-[14px] font-medium uppercase tracking-wider text-white hover:bg-[#243147]">
                 Для клиентов из России
               </button>
