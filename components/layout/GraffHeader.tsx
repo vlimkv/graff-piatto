@@ -72,7 +72,7 @@ export function GraffHeader() {
               <a href="#" className="hover:text-[#C9A25B] text-center transition-colors">Для клиентов из России</a>
               <a href="#" className="hover:text-[#C9A25B] text-center transition-colors">Контакты</a>
               <a href="#" className="hover:text-[#C9A25B] text-center transition-colors">Новости</a>
-              <a href="#" className="hover:text-[#C9A25B] text-center transition-colors">О бренде</a>
+              <a href="/about" className="hover:text-[#C9A25B] text-center transition-colors">О бренде</a>
             </nav>
 
             <div className="absolute left-[1089px] top-[28px] z-10 flex items-center gap-[20px] text-[#303F56]">
@@ -145,7 +145,7 @@ export function GraffHeader() {
             <a href="/graff-gastronomy" className="text-xl font-medium text-[#303F56]">
               Graff Gastronomy
             </a>
-            <a href="#" className="text-xl font-medium text-[#303F56]">
+            <a href="/about" className="text-xl font-medium text-[#303F56]">
               О бренде
             </a>
             <a href="#" className="text-xl font-medium text-[#303F56]">
