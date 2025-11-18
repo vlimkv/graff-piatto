@@ -68,7 +68,7 @@ export function GraffHeader() {
 
             <nav className="absolute left-[462px] top-[31px] z-10 flex h-[17px] w-[592px] items-center justify-between text-sm font-medium text-black">
               <a href="/catalog" className="hover:text-[#C9A25B] transition-colors">Каталог</a>
-              <a href="#" className="hover:text-[#C9A25B] transition-colors">Graff Gastronomy</a>
+              <a href="/graff-gastronomy" className="hover:text-[#C9A25B] transition-colors">Graff Gastronomy</a>
               <a href="#" className="hover:text-[#C9A25B] text-center transition-colors">Для клиентов из России</a>
               <a href="#" className="hover:text-[#C9A25B] text-center transition-colors">Контакты</a>
               <a href="#" className="hover:text-[#C9A25B] text-center transition-colors">Новости</a>
@@ -142,7 +142,7 @@ export function GraffHeader() {
             <a href="/catalog" className="font-display text-2xl font-medium text-[#C9A25B]">
               Каталог
             </a>
-            <a href="#" className="text-xl font-medium text-[#303F56]">
+            <a href="/graff-gastronomy" className="text-xl font-medium text-[#303F56]">
               Graff Gastronomy
             </a>
             <a href="#" className="text-xl font-medium text-[#303F56]">
