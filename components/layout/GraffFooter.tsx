@@ -80,7 +80,7 @@ export function GraffFooter() {
 
             <div className="absolute left-[303px] top-[84px] flex gap-[15px]">
               <a
-                href="https://instagram.com/your_graff_piatto"
+                href="https://instagram.com/graff.piatto"
                 aria-label="Instagram Graff Piatto"
                 className="flex h-8 w-8 items-center justify-center text-white hover:text-[#C9A25B] transition-colors"
               >
@@ -94,7 +94,7 @@ export function GraffFooter() {
                 <FooterIconTelegram />
               </a>
               <a
-                href="https://wa.me/7700XXXXXXX"
+                href="https://wa.me/77012161772"
                 aria-label="WhatsApp Graff Piatto"
                 className="flex h-8 w-8 items-center justify-center text-white hover:text-[#C9A25B] transition-colors"
               >
@@ -169,7 +169,7 @@ export function GraffFooter() {
                 </p>
                 <div className="flex justify-center gap-8">
                   <a
-                    href="https://instagram.com/your_graff_piatto"
+                    href="https://instagram.com/graff.piatto"
                     className="text-white hover:text-[#C9A25B] transition-colors"
                   >
                     <FooterIconInstagram />
@@ -181,7 +181,7 @@ export function GraffFooter() {
                     <FooterIconTelegram />
                   </a>
                   <a
-                    href="https://wa.me/7700XXXXXXX"
+                    href="https://wa.me/77012161772"
                     className="text-white hover:text-[#C9A25B] transition-colors"
                   >
                     <FooterIconWhatsApp />
