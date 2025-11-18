@@ -274,7 +274,7 @@ export default function GraffPiattoPage() {
             <div className="mt-8 flex w-full flex-col gap-3">
               <Link
                 href="/catalog"
-                className="block h-[50px] w-full bg-[#C9A25B] text-[14px] font-medium uppercase tracking-wider text-white hover:bg-[#b58f4d]"
+                className="flex h-[50px] w-full items-center justify-center bg-[#C9A25B] text-[14px] font-medium uppercase tracking-wider text-white hover:bg-[#b58f4d]"
               >
                 Каталог
               </Link>
