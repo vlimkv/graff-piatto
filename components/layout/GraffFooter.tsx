@@ -149,7 +149,7 @@ export function GraffFooter() {
             <nav className="mb-10 grid grid-cols-2 gap-x-4 gap-y-4 border-t border-white/10 pt-8 text-[13px] font-medium leading-tight">
               {/* Левая колонка */}
               <div className="flex flex-col gap-4 items-start pl-2">
-                <a href="#" className="hover:text-[#C9A25B] transition-colors">Каталог</a>
+                <a href="/catalog" className="hover:text-[#C9A25B] transition-colors">Каталог</a>
                 <a href="#" className="hover:text-[#C9A25B] transition-colors">Graff Gastronomy</a>
                 <a href="#" className="hover:text-[#C9A25B] transition-colors">О бренде</a>
               </div>
