@@ -35,8 +35,6 @@ export default function GraffGastronomyPage() {
         
         {/* --- HERO SECTION: 1440×478px --- */}
         <section className="relative h-[478px] w-full flex justify-center bg-white overflow-hidden">
-          
-          {/* Background Image with Gradient */}
           <div 
             className="absolute left-0 top-0 w-full h-[478px]"
             style={{
@@ -46,10 +44,7 @@ export default function GraffGastronomyPage() {
             }}
           />
 
-          {/* Content Container */}
           <div className="relative w-[1440px] h-full shrink-0">
-            
-            {/* Title */}
             <h1 
               className="absolute left-[268px] top-[114px] w-[761px] h-[67px] flex items-center text-white"
               style={{
@@ -62,7 +57,6 @@ export default function GraffGastronomyPage() {
               Graff Gastronomy
             </h1>
 
-            {/* Description: Manrope */}
             <p 
               className="absolute left-[268px] top-[205px] w-[416px] h-[72px] flex items-center text-white/90"
               style={{
@@ -75,7 +69,6 @@ export default function GraffGastronomyPage() {
               Атмосферные мастер-классы, ужины и частные вечера в гастрономической студии Graff Piatto
             </p>
 
-            {/* Button */}
             <div className="absolute left-[268px] top-[312px] w-[310px] h-[56px]">
               <button className="w-full h-full bg-[#C9A25B] flex justify-center items-center transition-all duration-200 hover:bg-[#b58f4d] hover:shadow-lg active:scale-[0.98]">
                 <span 
@@ -98,7 +91,6 @@ export default function GraffGastronomyPage() {
         {/* --- UPCOMING EVENTS SECTION --- */}
         <section className="relative h-[572px] w-full flex justify-center bg-[#F2EFE0]">
           <div className="relative w-[1440px] h-full shrink-0">
-            
             <h2 
               className="absolute left-[268px] top-[80px] w-[327px] h-[43px] flex items-center text-[#303F56]"
               style={{
@@ -193,7 +185,6 @@ export default function GraffGastronomyPage() {
         {/* --- STUDIO RENTAL SECTION --- */}
         <section className="relative h-[469px] w-full flex justify-center bg-white">
           <div className="relative w-[1440px] h-full shrink-0">
-            
             <h2 
               className="absolute left-[268px] top-[80px] w-[222px] h-[43px] flex items-center text-[#303F56]"
               style={{
@@ -206,14 +197,14 @@ export default function GraffGastronomyPage() {
               Аренда студии
             </h2>
 
-            {/* Description: Manrope - ИСПРАВЛЕНО: Уменьшен шрифт и межстрочный интервал */}
+            {/* ИСПРАВЛЕНО: Уменьшен размер шрифта до 16px и интервал до 24px */}
             <div 
               className="absolute left-[268px] top-[143px] w-[416px] h-[216px] flex items-center text-[#303F56]"
               style={{
                 fontFamily: 'Manrope, sans-serif',
                 fontWeight: 400,
-                fontSize: '16px', // Изменено с 20px на 16px
-                lineHeight: '24px' // Изменено с 28px на 24px
+                fontSize: '16px', // Было 20px
+                lineHeight: '24px' // Было 28px
               }}
             >
               <p>
@@ -229,15 +220,15 @@ export default function GraffGastronomyPage() {
               <img 
                 src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=900&q=80"
                 alt="Студия Graff Piatto"
-                className="w-full h-full object-cover transition-transform duration-700"
-                />
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              />
             </div>
           </div>
         </section>
       </div>
 
       {/* ==========================================
-          MOBILE VERSION (Responsive & Clean)
+          MOBILE VERSION
       ========================================== */}
       <div className="lg:hidden w-full">
         
@@ -309,11 +300,12 @@ export default function GraffGastronomyPage() {
                 key={index} 
                 className="overflow-hidden bg-white shadow-xl rounded-sm active:scale-[0.98] transition-transform duration-200"
               >
-                <div className="relative h-[230px] w-full overflow-hidden">
+                {/* ИСПРАВЛЕНО: Картинка квадратная (aspect-square) */}
+                <div className="relative w-full aspect-square overflow-hidden">
                   <img 
                     src={event.image} 
                     alt={event.title} 
-                    className="h-full w-full object-cover" 
+                    className="w-full h-full object-cover" 
                   />
                 </div>
                 
