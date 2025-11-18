@@ -4,7 +4,6 @@ import React, { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-
 // --- MOCK DATA ---
 type Product = {
   id: number;
@@ -242,7 +241,7 @@ export default function CatalogPage() {
                     </button>
                     {expandedSections.includes("Чашки") && (
                       <div className="mt-2 space-y-1 border-l-2 border-white/10 pl-3 ml-1">
-                         {["Чайные пары", "Кофейные чашки"].map(cat => (
+                          {["Чайные пары", "Кофейные чашки"].map(cat => (
                           <CustomCheckbox 
                             key={cat} 
                             label={cat} 
@@ -294,23 +293,16 @@ export default function CatalogPage() {
             <main className="grid grid-cols-3 gap-x-6 gap-y-10 content-start">
               {filteredProducts.map((product) => (
                 <article key={product.id} className="group flex flex-col bg-white transition-transform duration-300 hover:-translate-y-2">
-                  {/* Image Area */}
-                  <div className="relative aspect-square w-full overflow-hidden bg-[#F5F1E5]">
+                  {/* Image Area - теперь КЛИКАБЕЛЬНАЯ ССЫЛКА */}
+                  <Link href={`/product/${product.id}`} className="block relative aspect-square w-full overflow-hidden bg-[#F5F1E5]">
                     <Image
                       src={product.image}
                       alt={product.title}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    {/* Quick Add Overlay */}
-                    <div className="absolute inset-x-0 bottom-0 translate-y-full bg-[#303F56]/90 p-3 text-center backdrop-blur-sm transition-transform duration-300 group-hover:translate-y-0">
-                        <button className="text-xs font-bold uppercase tracking-widest text-white hover:text-[#C9A25B]">
-                            <Link href={`/product/${product.id}`}>
-                                <button>Быстрый просмотр</button>
-                            </Link>
-                        </button>
-                    </div>
-                  </div>
+                    {/* Overlay с Quick View УДАЛЕН полностью */}
+                  </Link>
 
                   {/* Card Body */}
                   <div className="flex flex-1 flex-col pt-4 pb-2">
@@ -318,9 +310,12 @@ export default function CatalogPage() {
                        <p className="text-xs font-bold uppercase tracking-wider text-gray-400">{product.brand}</p>
                     </div>
                     
-                    <h3 className="line-clamp-2 text-sm font-medium leading-snug text-[#303F56] min-h-[40px]">
-                      {product.title}
-                    </h3>
+                    {/* Название - теперь ССЫЛКА */}
+                    <Link href={`/product/${product.id}`}>
+                        <h3 className="line-clamp-2 text-sm font-medium leading-snug text-[#303F56] min-h-[40px] transition-colors hover:text-[#C9A25B]">
+                        {product.title}
+                        </h3>
+                    </Link>
 
                     <div className="mt-4 flex items-end justify-between border-t border-gray-100 pt-3">
                        <div className="flex flex-col">
@@ -328,7 +323,7 @@ export default function CatalogPage() {
                           <span className="text-xs text-gray-400">{product.priceRub.toLocaleString()} ₽</span>
                        </div>
                        
-                       {/* Квадратная кнопка */}
+                       {/* Квадратная кнопка (без ссылки, чтобы можно было добавить в корзину не уходя) */}
                        <button className="bg-[#C9A25B] px-5 py-2 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#b08b48] active:scale-95">
                          В корзину
                        </button>
@@ -392,22 +387,24 @@ export default function CatalogPage() {
           <div className="grid grid-cols-2 gap-x-4 gap-y-8">
             {filteredProducts.map((product) => (
               <article key={product.id} className="flex flex-col">
-                {/* Квадратная картинка без скруглений, бежевый фон как в макете */}
-                <div className="relative aspect-square w-full overflow-hidden bg-[#F5F1E5] mb-3">
+                {/* Image Link Wrapper (Mobile) */}
+                <Link href={`/product/${product.id}`} className="relative aspect-square w-full overflow-hidden bg-[#F5F1E5] mb-3 block">
                   <Image
                     src={product.image}
                     alt={product.title}
                     fill
                     className="object-cover"
                   />
-                </div>
+                </Link>
 
                 <div className="flex flex-1 flex-col">
                   <p className="mb-1 text-xs font-bold uppercase tracking-wide text-gray-400">{product.brand}</p>
-                  {/* Крупный читаемый шрифт */}
-                  <h3 className="line-clamp-2 text-[13px] font-semibold leading-tight text-[#303F56] min-h-[34px]">
-                    {product.title}
-                  </h3>
+                  {/* Title Link Wrapper (Mobile) */}
+                  <Link href={`/product/${product.id}`}>
+                      <h3 className="line-clamp-2 text-[13px] font-semibold leading-tight text-[#303F56] min-h-[34px]">
+                        {product.title}
+                      </h3>
+                  </Link>
 
                   <div className="mt-2">
                     <div className="flex items-baseline gap-2">
@@ -451,25 +448,25 @@ export default function CatalogPage() {
 
               {/* Sheet Body (Scrollable) */}
               <div className="flex-1 overflow-y-auto p-6 pb-24 space-y-8">
-                 {/* Brands */}
-                 <div>
+                  {/* Brands */}
+                  <div>
                     <h3 className="mb-4 text-base font-bold uppercase text-[#C9A25B]">Бренд</h3>
                     <div className="space-y-3 pl-1">
                       {brands.map(brand => (
                         <CustomCheckbox key={brand} label={brand} checked={selectedBrands.includes(brand)} onChange={() => toggleSelection(brand, selectedBrands, setSelectedBrands)} />
                       ))}
                     </div>
-                 </div>
+                  </div>
 
-                 {/* Collections */}
-                 <div>
+                  {/* Collections */}
+                  <div>
                     <h3 className="mb-4 text-base font-bold uppercase text-[#C9A25B]">Коллекция</h3>
                     <div className="space-y-3 pl-1">
                       {collections.map(col => (
                         <CustomCheckbox key={col} label={col} checked={selectedCollections.includes(col)} onChange={() => toggleSelection(col, selectedCollections, setSelectedCollections)} color="gray" />
                       ))}
                     </div>
-                 </div>
+                  </div>
               </div>
 
               {/* Sheet Footer (Fixed) */}
