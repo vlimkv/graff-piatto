@@ -109,8 +109,8 @@ export function GraffFooter() {
                 <a href="/graff-gastronomy" className="block hover:text-[#C9A25B]">Graff Gastronomy</a>
               </div>
               <div className="space-y-[0.67px]">
-                <a href="#" className="block hover:text-[#C9A25B]">Новости</a>
-                <a href="#" className="block hover:text-[#C9A25B]">Контакты</a>
+                <a href="/news" className="block hover:text-[#C9A25B]">Новости</a>
+                <a href="/contacts" className="block hover:text-[#C9A25B]">Контакты</a>
                 <a href="/about" className="block hover:text-[#C9A25B]">О бренде</a>
               </div>
             </div>
@@ -157,8 +157,8 @@ export function GraffFooter() {
               {/* Правая колонка */}
               <div className="flex flex-col gap-4 items-start">
                  <a href="#" className="hover:text-[#C9A25B] transition-colors">Клиентам из РФ</a>
-                 <a href="#" className="hover:text-[#C9A25B] transition-colors">Новости</a>
-                 <a href="#" className="hover:text-[#C9A25B] transition-colors">Контакты</a>
+                 <a href="/news" className="hover:text-[#C9A25B] transition-colors">Новости</a>
+                 <a href="/contacts" className="hover:text-[#C9A25B] transition-colors">Контакты</a>
               </div>
             </nav>
 
