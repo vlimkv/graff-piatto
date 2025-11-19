@@ -72,14 +72,20 @@ export default function GraffPiattoPage() {
               />
             </div>
 
-            {/* Основной текст */}
             <p className="absolute left-[570px] top-[112px] w-[230px] text-[15px] leading-[23px] text-[#303F56]">
-              Graff Piatto — это дом столовых нарядов, где каждый предмет выбран с заботой о деталях. Айзере
-              собирала коллекцию брендов по миру и мечтала, чтобы в Астане появилось место, где посуда помогает
-              создавать атмосферу дома, в котором живут вкус, эстетика и любовь к гостям.
+              Graff Piatto — это дом<br />
+              столовых нарядов, где<br />
+              каждый предмет выбран<br />
+              с заботой о&nbsp;деталях.<br />
+              Айзере собирала<br />
+              коллекцию брендов по миру<br />
+              и&nbsp;мечтала, чтобы в&nbsp;Астане<br />
+              появилось место, где посуда<br />
+              помогает создавать атмосферу<br />
+              дома, в&nbsp;котором живут вкус,<br />
+              эстетика и&nbsp;любовь к&nbsp;гостям.
             </p>
 
-            {/* Имя + подпись */}
             <p className="absolute left-[284px] top-[493px] w-[285px] flex flex-col items-center text-center leading-[18px] text-[#303F56]">
               <span className="text-base font-semibold">
                 Айзере Ахмет
@@ -117,7 +123,8 @@ export default function GraffPiattoPage() {
 
             {/* Текст под логотипами */}
             <p className="absolute left-[791px] top-[212px] w-[365px] text-center text-[15px] font-medium leading-[22px] text-[#303F56]">
-              Официальная поставка премиальной посуды в Казахстан и Россию.
+              Официальная поставка<br />
+              премиальной посуды в Казахстан и Россию
             </p>
           </div>
         </section>
@@ -264,8 +271,8 @@ export default function GraffPiattoPage() {
           <div className="absolute inset-0 bg-black/40" /> {/* Чуть темнее для читаемости */}
           
           <div className="relative z-10 flex h-full flex-col items-center justify-center px-5 text-center">
-            <h1 className="font-display text-[36px] font-bold leading-[42px] text-white">
-              Дом столовых <br /> нарядов <br /> премиального <br /> качества
+            <h1 className="font-display text-[30px] font-bold leading-[42px] text-white">
+              Дом столовых нарядов <br /> премиального качества
             </h1>
             <p className="mt-4 max-w-[280px] text-[16px] leading-[20px] text-white/90">
               Премиальная посуда, сервировка и подарки для вашего дома.
@@ -305,7 +312,10 @@ export default function GraffPiattoPage() {
             {/* Текст */}
             <div className="text-center">
               <p className="text-[15px] leading-[24px] text-[#303F56]">
-                Graff Piatto — это дом столовых нарядов. Айзере собирала коллекцию брендов по миру, чтобы в Астане появилось место, где посуда создает атмосферу любви к гостям.
+                Graff Piatto — это дом столовых нарядов.<br />
+                Айзере собирала коллекцию брендов по миру,<br />
+                чтобы в&nbsp;Астане появилось место,<br />
+                где посуда создаёт атмосферу любви к&nbsp;гостям.
               </p>
               <div className="mt-6">
                 <p className="text-[16px] font-bold text-[#303F56]">Айзере Ахмет</p>
@@ -329,7 +339,8 @@ export default function GraffPiattoPage() {
               ))}
             </div>
             <p className="text-center text-[13px] font-medium text-[#303F56]">
-              Официальная поставка премиальной посуды в Казахстан и Россию.
+              Официальная поставка<br />
+              премиальной посуды в Казахстан и Россию
             </p>
           </div>
         </section>

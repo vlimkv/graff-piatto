@@ -255,16 +255,19 @@ export default function GraffGastronomyPage() {
             </h1>
             
             <p 
-              className="mt-6 max-w-[320px] text-white/90 drop-shadow-md"
-              style={{
+            className="mt-6 max-w-[320px] text-white/90 drop-shadow-md"
+            style={{
                 fontFamily: 'Manrope, sans-serif',
                 fontWeight: 400,
                 fontSize: '15px',
                 lineHeight: '22px'
-              }}
+            }}
             >
-              Атмосферные мастер-классы, ужины и частные вечера в гастрономической студии Graff Piatto
+            Атмосферные мастер-классы,<br />
+            ужины и&nbsp;частные вечера<br />
+            в&nbsp;гастрономической студии Graff Piatto<br />
             </p>
+
             
             <button 
               className="mt-10 w-full max-w-[300px] h-[56px] bg-[#C9A25B] text-white shadow-xl active:scale-95 transition-transform duration-200"

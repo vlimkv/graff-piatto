@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link"; // ✅ добавили
 
 // --- ИКОНКИ ---
 const IconSearch = () => (
@@ -36,13 +37,8 @@ const IconClose = () => (
 export function GraffHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Блокируем скролл основного сайта, когда открыто меню
   useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "auto";
   }, [mobileMenuOpen]);
 
   return (
@@ -51,9 +47,13 @@ export function GraffHeader() {
       <div className="hidden xl:block">
         <header className="fixed inset-x-0 top-0 z-50 h-20 border-b border-gray-200 bg-white">
           <div className="relative mx-auto h-full w-full max-w-[1440px]">
-            {/* Логотип в круге */}
-            <div className="pointer-events-none absolute left-[283px] top-[-140px] h-[300px] w-[165px] z-0">
-              <div className="relative h-full w-full rounded-[999px] bg-white shadow-sm">
+            {/* Логотип в круге (кликабелен, ведёт на главную) */}
+            <Link
+              href="/"
+              aria-label="На главную Graff Piatto"
+              className="absolute left-[283px] top-[-140px] h-[300px] w-[165px] z-0"
+            >
+              <div className="relative h-full w-full rounded-[999px] bg-white shadow-sm cursor-pointer">
                 <div className="absolute left-[20px] top-[155px] h-[125px] w-[125px]">
                   <Image
                     src="/images/logo-main.png"
@@ -64,7 +64,7 @@ export function GraffHeader() {
                   />
                 </div>
               </div>
-            </div>
+            </Link>
 
             <nav className="absolute left-[462px] top-[31px] z-10 flex h-[17px] w-[592px] items-center justify-between text-sm font-medium text-black">
               <a href="/catalog" className="hover:text-[#C9A25B] transition-colors">Каталог</a>
@@ -87,19 +87,16 @@ export function GraffHeader() {
         </header>
       </div>
 
-      {/* MOBILE HEADER (PREMIUM TEXT LOGO) */}
+      {/* MOBILE HEADER */}
       <div className="xl:hidden">
-        
-        {/* HEADER BAR */}
         <header className="fixed inset-x-0 top-0 z-50 border-b border-gray-100 bg-white/90 backdrop-blur-md">
           <div className="flex h-16 items-center justify-between px-5">
-            
-            {/* ЛОГОТИП (ТЕКСТ) */}
-            <div className="flex items-center">
+            {/* ЛОГОТИП (ТЕКСТ, кликает на главную) */}
+            <Link href="/" aria-label="На главную Graff Piatto" className="flex items-center">
               <span className="font-display text-xl font-bold tracking-wider text-[#303F56]">
                 GRAFF PIATTO
               </span>
-            </div>
+            </Link>
 
             {/* ИКОНКИ */}
             <div className="flex items-center gap-5">
@@ -126,7 +123,6 @@ export function GraffHeader() {
             mobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          {/* Верхняя часть меню (Кнопка закрыть) */}
           <div className="flex h-16 items-center justify-between border-b border-gray-100 px-5">
             <span className="font-display text-lg font-bold text-[#C9A25B]">МЕНЮ</span>
             <button
@@ -137,7 +133,6 @@ export function GraffHeader() {
             </button>
           </div>
 
-          {/* Список ссылок */}
           <div className="flex flex-col items-center justify-center space-y-6 pt-10">
             <a href="/catalog" className="font-display text-2xl font-medium text-[#C9A25B]">
               Каталог
@@ -154,8 +149,7 @@ export function GraffHeader() {
             <a href="#" className="text-xl font-medium text-[#303F56]">
               Контакты
             </a>
-            
-            {/* Разделитель */}
+
             <div className="h-px w-16 bg-[#C9A25B]/50 my-4" />
 
             <a href="#" className="text-base font-medium text-gray-500">
@@ -163,11 +157,10 @@ export function GraffHeader() {
             </a>
           </div>
 
-          {/* Нижняя часть (Контакты/Кнопка) */}
           <div className="absolute bottom-10 left-0 w-full px-6">
-             <button className="w-full h-[50px] bg-[#303F56] text-white uppercase text-sm font-medium tracking-wider">
-                Связаться с нами
-             </button>
+            <button className="w-full h-[50px] bg-[#303F56] text-white uppercase text-sm font-medium tracking-wider">
+              Связаться с нами
+            </button>
           </div>
         </div>
       </div>
