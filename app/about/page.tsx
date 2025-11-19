@@ -114,8 +114,10 @@ export default function AboutPage() {
           <div className="relative w-[1440px] h-full shrink-0">
             <div className="absolute left-[303px] top-[105px] w-[517px]">
               <h1 className="font-playfair text-[50px] font-medium leading-[67px] text-[#C9A25B]">
-                О бренде Graff Piatto
-              </h1>
+                О бренде<br />
+                Graff Piatto
+                </h1>
+
 
               <p className="mt-8 w-[416px] font-manrope text-[15px] font-semibold leading-[24px] text-[#303F56]">
                 Основательница Айзере Ахмет запустила Graff Piatto как студию
@@ -131,22 +133,18 @@ export default function AboutPage() {
         {/* --- BRAND HISTORY (PIXEL PERFECT) --- */}
         <section className="relative h-[403px] w-full flex justify-center bg-white">
           <div className="relative w-[1440px] h-full shrink-0">
-            {/* Заголовок */}
             <h2 className="absolute left-[303px] top-[30px] font-playfair font-medium text-[32px] leading-[43px] text-[#C9A25B]">
               История
             </h2>
 
-            {/* Графика таймлайна (Линия) */}
             <div className="absolute left-[327px] top-[123px] w-[2px] h-[240px] bg-[#C9A25B] opacity-30" />
 
-            {/* Точки таймлайна */}
             <div className="absolute left-[318px] top-[113px] w-[20px] h-[20px] bg-white border-2 border-[#C9A25B] rounded-full box-border z-10" />
             <div className="absolute left-[318px] top-[173px] w-[20px] h-[20px] bg-white border-2 border-[#C9A25B] rounded-full box-border z-10" />
             <div className="absolute left-[318px] top-[233px] w-[20px] h-[20px] bg-white border-2 border-[#C9A25B] rounded-full box-border z-10" />
             <div className="absolute left-[318px] top-[293px] w-[20px] h-[20px] bg-white border-2 border-[#C9A25B] rounded-full box-border z-10" />
             <div className="absolute left-[318px] top-[353px] w-[20px] h-[20px] bg-white border-2 border-[#C9A25B] rounded-full box-border z-10" />
 
-            {/* Текст таймлайна - исправил на 2 строки */}
             <div className="absolute left-[363px] top-[174px] w-[174px] h-[18px] flex items-center">
               <p className="font-manrope font-medium text-[15px] leading-[18px] text-[#303F56]">
                 <span className="font-bold">2010:</span>&nbsp;Появился бутик
@@ -165,7 +163,6 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* Картинки истории - сдвинул правее на 30px */}
             <div className="absolute left-[587px] top-[123px] w-[210px] h-[240px]">
               <Image
                 src={historyImages[0].src}
@@ -196,37 +193,35 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* --- PHILOSOPHY SECTION --- */}
-        <section className="relative h-[320px] w-full flex justify-center bg-white">
-          <div className="relative w-[1440px] h-full shrink-0">
-            <h2 className="text-center font-playfair text-[36px] font-medium text-[#C9A25B] pt-[40px]">
-              Философия сервировки
-            </h2>
+        <section className="relative h-[380px] w-full flex justify-center bg-white">
+            <div className="relative w-[1440px] h-full shrink-0">
+                <h2 className="text-center font-playfair text-[36px] font-medium text-[#C9A25B] pt-[40px]">
+                Философия сервировки
+                </h2>
 
-            <div className="mt-[55px] flex justify-center gap-[103px]">
-              {philosophy.map((item, index) => (
-                <div key={index} className="flex flex-col items-center">
-                  <div className="flex h-[100px] w-[100px] items-center justify-center rounded-full border-2 border-[#C9A25B] group transition-all duration-300 hover:bg-[#C9A25B] hover:text-white">
-                    <item.icon
-                      className="h-[50px] w-[50px] text-[#C9A25B] group-hover:text-white transition-colors"
-                      strokeWidth={1.5}
-                    />
-                  </div>
+                <div className="mt-[55px] flex justify-center gap-[103px]">
+                {philosophy.map((item, index) => (
+                    <div key={index} className="flex flex-col items-center">
+                    <div className="flex h-[100px] w-[100px] items-center justify-center rounded-full border-2 border-[#C9A25B] group transition-all duration-300 hover:bg-[#C9A25B] hover:text-white">
+                        <item.icon
+                        className="h-[50px] w-[50px] text-[#C9A25B] group-hover:text-white transition-colors"
+                        strokeWidth={1.5}
+                        />
+                    </div>
 
-                  <p className="mt-5 text-center font-manrope text-[15px] font-medium text-[#303F56]">
-                    {item.title}
-                  </p>
+                    <p className="mt-5 text-center font-manrope text-[15px] font-medium text-[#303F56]">
+                        {item.title}
+                    </p>
 
-                  <p className="mt-2 w-[156px] text-center font-manrope text-[15px] font-light leading-[18px] text-[#303F56]">
-                    {item.desc}
-                  </p>
+                    <p className="mt-2 w-[156px] text-center font-manrope text-[15px] font-light leading-[18px] text-[#303F56]">
+                        {item.desc}
+                    </p>
+                    </div>
+                ))}
                 </div>
-              ))}
             </div>
-          </div>
         </section>
 
-        {/* --- BRANDS SECTION (без обводки) --- */}
         <section className="relative h-[244px] w-full flex justify-center bg-white">
           <div className="relative w-[1440px] h-full shrink-0">
             <h2 className="pt-[25px] text-center font-playfair text-[24px] font-medium text-[#C9A25B]">
