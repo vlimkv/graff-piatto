@@ -102,7 +102,7 @@ export default function NotFound() {
           {/* Фоновое изображение с overlay */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/images/404-bg.jpg"
+              src="/images/404-bg.png"
               alt="404 Background"
               fill
               className="object-cover"
