@@ -2,6 +2,33 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+// Иконка банковской карты (SVG)
+const CardIcon = () => (
+  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="5" width="20" height="14" rx="2" />
+    <line x1="2" y1="10" x2="22" y2="10" />
+  </svg>
+);
+
+// Иконка наличных (SVG)
+const CashIcon = () => (
+  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="6" width="20" height="12" rx="2" />
+    <circle cx="12" cy="12" r="2" />
+    <path d="M6 12h.01M18 12h.01" />
+  </svg>
+);
+
+// Иконка-заглушка для СБП (пока вы не вставите логотип)
+const SbpPlaceholderIcon = () => (
+  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="9" cy="7" r="4"></circle>
+    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+  </svg>
+);
+
 export default function RussiaClientsPage() {
   const deliverySteps = [
     {
@@ -27,9 +54,18 @@ export default function RussiaClientsPage() {
   ];
 
   const paymentMethods = [
-    { name: "Карты РФ", icon: "💳" },
-    { name: "СБП", icon: "📱" },
-    { name: "Наличные", icon: "💵" }
+    { 
+      name: "Карты РФ", 
+      icon: <CardIcon /> 
+    },
+    { 
+      name: "СБП", 
+      icon: <Image src="/images/sbp-logo.png" width={100} height={100} alt="СБП" />
+    },
+    { 
+      name: "Наличные", 
+      icon: <CashIcon /> 
+    }
   ];
 
   const cities = [
@@ -102,8 +138,11 @@ export default function RussiaClientsPage() {
             
             <div className="grid grid-cols-3 gap-8 max-w-4xl mx-auto">
               {paymentMethods.map((method, idx) => (
-                <div key={idx} className="bg-white p-8 text-center shadow-md hover:shadow-xl transition-shadow">
-                  <div className="text-5xl mb-4">{method.icon}</div>
+                <div key={idx} className="bg-white p-8 text-center shadow-md hover:shadow-xl transition-shadow flex flex-col items-center justify-center h-[200px]">
+                  {/* Используем text-[#303F56] для цвета SVG */}
+                  <div className="mb-6 text-[#303F56]">
+                    {method.icon}
+                  </div>
                   <h3 className="text-lg font-bold text-[#303F56]">{method.name}</h3>
                 </div>
               ))}
@@ -238,8 +277,10 @@ export default function RussiaClientsPage() {
           
           <div className="grid grid-cols-3 gap-4">
             {paymentMethods.map((method, idx) => (
-              <div key={idx} className="bg-white p-4 text-center shadow-md">
-                <div className="text-3xl mb-2">{method.icon}</div>
+              <div key={idx} className="bg-white p-4 text-center shadow-md flex flex-col items-center justify-center min-h-[120px]">
+                <div className="mb-3 text-[#303F56] scale-75">
+                    {method.icon}
+                </div>
                 <p className="text-sm font-semibold text-[#303F56]">{method.name}</p>
               </div>
             ))}
