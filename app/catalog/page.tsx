@@ -471,7 +471,6 @@ export default function CatalogPage() {
 
               {/* Sheet Footer (Fixed) */}
               <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-[#303F56] p-6 pb-8">
-                {/* Квадратная кнопка */}
                 <button
                   onClick={() => setIsMobileFilterOpen(false)}
                   className="h-[56px] w-full bg-[#C9A25B] text-lg font-bold text-white shadow-lg active:scale-[0.98] transition-transform"
