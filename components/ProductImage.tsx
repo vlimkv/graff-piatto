@@ -4,7 +4,7 @@
 
 import React from 'react';
 
-const API_URL = 'http://localhost:4000';
+const API_URL = 'https://infinitely-traversable-carin.ngrok-free.dev/';
 
 interface ProductImageProps {
   imageUrl?: string | null;

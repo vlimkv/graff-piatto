@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useCart } from "../../contexts/cart-context";
 
-const API_URL = 'http://localhost:4000';
+const API_URL = 'https://infinitely-traversable-carin.ngrok-free.dev/';
 
 type Product = {
   id: number;

@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 
-const API_URL = 'http://localhost:4000';
+const API_URL = 'https://infinitely-traversable-carin.ngrok-free.dev/';
 
 export default function GraffGastronomyPage() {
   const [events, setEvents] = useState([]);

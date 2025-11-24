@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const API_URL = 'http://localhost:4000';
+const API_URL = 'https://infinitely-traversable-carin.ngrok-free.dev/';
 
 interface News {
   id: number;

@@ -5,7 +5,7 @@ import React, { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import { useCart } from "../contexts/cart-context";
 
-const API_URL = 'http://localhost:4000';
+const API_URL = 'https://infinitely-traversable-carin.ngrok-free.dev/';
 
 // --- ICONS ---
 const IconSearch = ({ className }: { className?: string }) => (
