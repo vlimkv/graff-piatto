@@ -38,12 +38,24 @@ export default function ProductDetailPage() {
       try {
         setLoading(true);
         
-        const res = await fetch(`${API_URL}/products/${productId}`);
+        // 1. Запрос текущего товара
+        const res = await fetch(`${API_URL}/products/${productId}`, {
+          headers: {
+            "ngrok-skip-browser-warning": "true", // <--- Добавлено
+          },
+        });
+
         if (res.ok) {
           const data = await res.json();
           setProduct(data);
           
-          const allRes = await fetch(`${API_URL}/products`);
+          // 2. Запрос всех товаров для блока "Похожие"
+          const allRes = await fetch(`${API_URL}/products`, {
+            headers: {
+              "ngrok-skip-browser-warning": "true", // <--- Добавлено
+            },
+          });
+
           if (allRes.ok) {
             const allProducts = await allRes.json();
             const related = allProducts
