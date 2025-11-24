@@ -2,9 +2,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Manrope, Playfair_Display } from "next/font/google";
-import { GraffHeader } from "@/components/layout/GraffHeader";
-import { GraffFooter } from "@/components/layout/GraffFooter";
+import HeaderFooterWrapper from "./HeaderFooterWrapper";
 import type { ReactNode } from "react";
+import { Providers } from './providers';
 
 const manrope = Manrope({
   subsets: ["latin", "cyrillic"],
@@ -30,17 +30,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       className={`${manrope.variable} ${playfair.variable}`}
     >
       <body
-        className={`${manrope.className} bg-white text-[#303F56] antialiased`}
+        className="bg-white text-[#303F56] antialiased"
+        style={{ fontFamily: 'var(--font-manrope), sans-serif' }}
       >
-        <div className="flex min-h-screen flex-col">
-          <GraffHeader />
-
-          <main className="flex-1 pt-16 xl:pt-20">
-            {children}
-          </main>
-
-          <GraffFooter />
-        </div>
+        <Providers><HeaderFooterWrapper>{children}</HeaderFooterWrapper></Providers>
       </body>
     </html>
   );

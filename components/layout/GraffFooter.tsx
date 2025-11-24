@@ -118,8 +118,8 @@ export function GraffFooter() {
             <div className="absolute left-[303px] top-[200.75px] h-px w-[833px] border-t border-white/80" />
 
             <div className="absolute left-[303px] top-[218px] flex gap-5 text-xs leading-[14px]">
-              <a href="#" className="hover:text-[#C9A25B]">Политика конфиденциальности</a>
-              <a href="#" className="hover:text-[#C9A25B]">Публичная оферта</a>
+              <a href="/privacy" className="hover:text-[#C9A25B]">Политика конфиденциальности</a>
+              <a href="/offer" className="hover:text-[#C9A25B]">Публичная оферта</a>
             </div>
 
             <p className="absolute left-[303px] top-[242px] text-xs leading-[14px]">
@@ -192,8 +192,8 @@ export function GraffFooter() {
             {/* 4. Лигал (Подвал) */}
             <div className="border-t border-white/10 pt-6 text-center">
               <div className="flex flex-col gap-2 text-[10px] font-light text-white/60">
-                <a href="#" className="hover:text-white">Политика конфиденциальности</a>
-                <a href="#" className="hover:text-white">Публичная оферта</a>
+                <a href="/privacy" className="hover:text-white">Политика конфиденциальности</a>
+                <a href="/offer" className="hover:text-white">Публичная оферта</a>
               </div>
               <p className="mt-5 text-[10px] text-white/30">
                 © 2025 Graff Piatto. Все права защищены.

@@ -1,8 +1,8 @@
-import type { NextConfig } from 'next';
-
-const nextConfig: NextConfig = {
+// next.config.mjs
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
-    unoptimized: true,
+    // Разрешаем localhost для development
     remotePatterns: [
       {
         protocol: 'http',
@@ -10,11 +10,10 @@ const nextConfig: NextConfig = {
         port: '4000',
         pathname: '/uploads/**',
       },
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-      },
     ],
+    // ВАЖНО: Отключаем блокировку приватных IP для localhost
+    dangerouslyAllowSVG: true,
+    unoptimized: process.env.NODE_ENV === 'development', // Только для dev
   },
 };
 

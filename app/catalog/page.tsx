@@ -3,6 +3,7 @@
 
 import React, { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
+import { useCart } from "../contexts/cart-context";
 
 const API_URL = 'http://localhost:4000';
 
@@ -51,6 +52,7 @@ const CustomCheckbox = ({ checked, onChange, label, color = "blue" }: { checked:
 );
 
 export default function CatalogPage() {
+  const cart = useCart();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
@@ -73,7 +75,6 @@ export default function CatalogPage() {
           const data = await res.json();
           setProducts(data);
           
-          // Находим максимальную цену
           if (data.length > 0) {
             const max = Math.max(...data.map((p: any) => Number(p.priceKzt)));
             setMaxPrice(max);
@@ -109,6 +110,19 @@ export default function CatalogPage() {
     });
     return filtered.sort((a: any, b: any) => sortOrder === "asc" ? a.priceKzt - b.priceKzt : b.priceKzt - a.priceKzt);
   }, [products, searchQuery, selectedBrands, selectedCollections, selectedCategories, priceRange, sortOrder]);
+
+  const handleAddToCart = (product: any) => {
+    cart.addToCart({
+      id: product.id,
+      name: product.title,
+      brand: product.brand,
+      category: product.category,
+      priceKzt: product.priceKzt,
+      priceRub: product.priceRub,
+      images: product.images || (product.imageUrl ? [product.imageUrl] : []),
+      inStock: true
+    });
+  };
 
   if (loading) {
     return (
@@ -200,7 +214,6 @@ export default function CatalogPage() {
                 </div>
               )}
 
-              {/* Price Range Slider */}
               <div className="border-t border-white/10 pt-5">
                 <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-[#C9A25B]">Цена (₸)</h3>
                 
@@ -270,7 +283,10 @@ export default function CatalogPage() {
                           <span className="text-xs text-gray-400">{Number(product.priceRub).toLocaleString()} ₽</span>
                        </div>
                        
-                       <button className="bg-[#C9A25B] px-5 py-2 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#b08b48] active:scale-95">
+                       <button 
+                         onClick={() => handleAddToCart(product)}
+                         className="bg-[#C9A25B] px-5 py-2 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#b08b48] active:scale-95"
+                       >
                          В корзину
                        </button>
                     </div>
@@ -341,7 +357,10 @@ export default function CatalogPage() {
                     </div>
                     <div className="text-xs text-gray-400">{Number(product.priceRub).toLocaleString()} ₽</div>
                     
-                    <button className="mt-3 w-full bg-[#C9A25B] py-3 text-xs font-bold uppercase tracking-widest text-white active:bg-[#b08b48]">
+                    <button 
+                      onClick={() => handleAddToCart(product)}
+                      className="mt-3 w-full bg-[#C9A25B] py-3 text-xs font-bold uppercase tracking-widest text-white active:bg-[#b08b48]"
+                    >
                       В корзину
                     </button>
                   </div>
@@ -405,7 +424,6 @@ export default function CatalogPage() {
                     </div>
                   )}
 
-                  {/* Mobile Price Filter */}
                   <div>
                     <h3 className="mb-4 text-base font-bold uppercase text-[#C9A25B]">Цена (₸)</h3>
                     

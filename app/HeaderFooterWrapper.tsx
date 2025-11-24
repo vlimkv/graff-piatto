@@ -1,4 +1,4 @@
-// app/HeaderFooterWrapper.tsx — клиентский
+// app/HeaderFooterWrapper.tsx
 "use client";
 import { usePathname } from "next/navigation";
 import { GraffHeader } from "@/components/layout/GraffHeader";
@@ -12,7 +12,9 @@ export default function HeaderFooterWrapper({ children }: { children: ReactNode 
   return (
     <div className="flex min-h-screen flex-col">
       {!isAdmin && <GraffHeader />}
-      <main className={`flex-1 ${!isAdmin ? "pt-16 xl:pt-20" : "pt-0"}`}>{children}</main>
+      <main className={`flex-1 ${!isAdmin ? "" : ""}`}>
+        {children}
+      </main>
       {!isAdmin && <GraffFooter />}
     </div>
   );
