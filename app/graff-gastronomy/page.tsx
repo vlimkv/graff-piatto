@@ -11,20 +11,27 @@ export default function GraffGastronomyPage() {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      try {
-        setLoading(true);
-        const res = await fetch(`${API_URL}/events`);
-        if (res.ok) {
-          const data = await res.json();
-          // Берем только первые 3 события
-          setEvents(data.slice(0, 3));
-        }
-      } catch (error) {
-        console.error('Error fetching events:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+      try {
+        setLoading(true);
+        // === ДОБАВЛЯЕМ HEADER СЮДА ===
+        const res = await fetch(`${API_URL}/events`, {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        });
+        // ============================
+        
+        if (res.ok) {
+          const data = await res.json();
+          // Берем только первые 3 события
+          setEvents(data.slice(0, 3));
+        }
+      } catch (error) {
+        console.error('Error fetching events:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
     fetchEvents();
   }, []);
