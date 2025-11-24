@@ -261,12 +261,15 @@ export default function CheckoutPage() {
       
       // Отправляем заказ на NestJS backend
       const response = await fetch(`${API_URL}/orders`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(orderData),
-      });
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // === ДОБАВЛЯЕМ HEADER СЮДА ===
+          "ngrok-skip-browser-warning": "true",
+          // ============================
+        },
+        body: JSON.stringify(orderData),
+      });
       
       if (response.ok) {
         const result = await response.json();
