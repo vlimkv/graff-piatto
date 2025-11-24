@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "../../app/contexts/cart-context";
 
-const API_URL = 'https://infinitely-traversable-carin.ngrok-free.dev/';
+const API_URL = 'https://infinitely-traversable-carin.ngrok-free.dev';
 
 // --- ТИПЫ ---
 interface Product {

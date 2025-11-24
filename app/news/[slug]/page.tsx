@@ -5,7 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
-const API_URL = 'https://infinitely-traversable-carin.ngrok-free.dev/';
+const API_URL = 'https://infinitely-traversable-carin.ngrok-free.dev';
 
 interface News {
   id: number;

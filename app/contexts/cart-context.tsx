@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-const API_URL = 'https://infinitely-traversable-carin.ngrok-free.dev/';
+const API_URL = 'https://infinitely-traversable-carin.ngrok-free.dev';
 
 // Типы
 export interface Product {

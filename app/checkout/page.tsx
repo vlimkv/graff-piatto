@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useCart } from '../contexts/cart-context';
 import { useRouter } from 'next/navigation';
 
-const API_URL = 'https://infinitely-traversable-carin.ngrok-free.dev/';
+const API_URL = 'https://infinitely-traversable-carin.ngrok-free.dev';
 
 // === ИКОНКИ ===
 const IconArrowLeft = (props: React.SVGProps<SVGSVGElement>) => (
