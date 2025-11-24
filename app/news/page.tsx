@@ -27,22 +27,29 @@ export default function NewsPage() {
   }, []);
 
   const fetchNews = async () => {
-    try {
-      setLoading(true);
-      const res = await fetch(`${API_URL}/news`);
-      if (res.ok) {
-        const data = await res.json();
-        setNews(data);
-      } else {
-        setError('Ошибка загрузки новостей');
-      }
-    } catch (error) {
-      console.error('Error fetching news:', error);
-      setError('Не удалось загрузить новости');
-    } finally {
-      setLoading(false);
-    }
-  };
+    try {
+      setLoading(true);
+      // === ДОБАВЛЯЕМ HEADER СЮДА ===
+      const res = await fetch(`${API_URL}/news`, {
+        headers: {
+          "ngrok-skip-browser-warning": "true",
+        },
+      });
+      // ============================
+      
+      if (res.ok) {
+        const data = await res.json();
+        setNews(data);
+      } else {
+        setError('Ошибка загрузки новостей');
+      }
+    } catch (error) {
+      console.error('Error fetching news:', error);
+      setError('Не удалось загрузить новости');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   if (loading) {
     return (
