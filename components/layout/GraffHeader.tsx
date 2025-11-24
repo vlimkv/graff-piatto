@@ -96,7 +96,11 @@ export function GraffHeader() {
 
       setSearchLoading(true);
       try {
-        const res = await fetch(`${API_URL}/products`);
+        const res = await fetch(`${API_URL}/products`, {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        });
         if (res.ok) {
           const allProducts: Product[] = await res.json();
           const query = searchQuery.toLowerCase();
