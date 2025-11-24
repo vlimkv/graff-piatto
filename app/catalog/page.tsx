@@ -67,29 +67,36 @@ export default function CatalogPage() {
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        setLoading(true);
-        const res = await fetch(`${API_URL}/products`);
-        if (res.ok) {
-          const data = await res.json();
-          setProducts(data);
-          
-          if (data.length > 0) {
-            const max = Math.max(...data.map((p: any) => Number(p.priceKzt)));
-            setMaxPrice(max);
-            setPriceRange({ min: 0, max });
-          }
-        }
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
+        // === ДОБАВЛЯЕМ HEADER СЮДА ===
+        const res = await fetch(`${API_URL}/products`, {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        });
+        // ============================
 
-    fetchProducts();
-  }, []);
+        if (res.ok) {
+          const data = await res.json();
+          setProducts(data);
+          
+          if (data.length > 0) {
+            const max = Math.max(...data.map((p: any) => Number(p.priceKzt)));
+            setMaxPrice(max);
+            setPriceRange({ min: 0, max });
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   const brands = useMemo(() => [...new Set(products.map((p: any) => p.brand))].sort(), [products]);
   const collections = useMemo(() => [...new Set(products.map((p: any) => p.collection || 'Без коллекции').filter(Boolean))].sort(), [products]);
