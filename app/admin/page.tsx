@@ -113,7 +113,12 @@ function AdminCMS() {
   const fetchData = async (endpoint: string, setter: Function) => {
     try {
       setIsLoading(true);
-      const res = await fetch(`${API_URL}/${endpoint}`);
+      // ДОБАВЛЕН HEADER
+      const res = await fetch(`${API_URL}/${endpoint}`, {
+        headers: {
+          "ngrok-skip-browser-warning": "true",
+        },
+      });
       if (res.ok) {
         const data = await res.json();
         setter(data);
@@ -125,10 +130,16 @@ function AdminCMS() {
     }
   };
 
-  const handleDelete = async (endpoint: string, id: number, currentList: any[], setter: Function) => {
+const handleDelete = async (endpoint: string, id: number, currentList: any[], setter: Function) => {
     if (!confirm('Вы уверены, что хотите удалить?')) return;
     try {
-      const res = await fetch(`${API_URL}/${endpoint}/${id}`, { method: 'DELETE' });
+      // ДОБАВЛЕН HEADER
+      const res = await fetch(`${API_URL}/${endpoint}/${id}`, { 
+        method: 'DELETE',
+        headers: {
+          "ngrok-skip-browser-warning": "true",
+        }, 
+      });
       if (res.ok) {
         setter(currentList.filter((item) => item.id !== id));
         alert('Успешно удалено');
@@ -609,7 +620,12 @@ function AdminCMS() {
   const fetchOrders = async () => {
     try {
       setIsLoading(true);
-      const res = await fetch(`${API_URL}/orders`);
+      // ДОБАВЛЕН HEADER
+      const res = await fetch(`${API_URL}/orders`, {
+        headers: {
+            "ngrok-skip-browser-warning": "true",
+        }
+      });
       if (res.ok) {
         const data = await res.json();
         setOrders(data);
@@ -627,6 +643,7 @@ function AdminCMS() {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
+          "ngrok-skip-browser-warning": "true", // ДОБАВЛЕН HEADER
         },
         body: JSON.stringify({ status: newStatus }),
       });
@@ -650,8 +667,11 @@ function AdminCMS() {
     try {
       const res = await fetch(`${API_URL}/orders/${orderId}`, {
         method: 'DELETE',
+        headers: {
+            "ngrok-skip-browser-warning": "true", // ДОБАВЛЕН HEADER
+        }
       });
-
+      
       if (res.ok) {
         fetchOrders();
         setShowModal(false);
@@ -1308,6 +1328,11 @@ function AdminCMS() {
         const res = await fetch(url, {
           method: method,
           body: formData,
+          // ДОБАВЛЕН HEADER
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+            // Content-Type указывать НЕ надо, так как мы шлем FormData, браузер сам поставит boundary
+          },
         });
 
         if (res.ok) {
